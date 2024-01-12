@@ -7,7 +7,7 @@ export default function Navbar() {
             <div className="container-fluid mx-5">
                 <a className="navbar-brand fw-bold text-dark" href="#">NITD "Hostel-Allot"</a>
                 <form className="d-flex">
-                  <button className="btn btn-outline-light fw-bold text-white" type="submit">Sign In</button>
+                  <button className="btn fw-bold text-white" type="submit">Sign In</button>
                 </form>
             </div>
         </nav>
