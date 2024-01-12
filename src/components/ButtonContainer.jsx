@@ -1,11 +1,43 @@
 import React from 'react'
+import Update from '../images/transfer.png'
+import Rec from '../images/phone.png'
+import Checked from '../images/checked.png'
 
+const divStyle = {
+  marginTop: '5px',
+  fontWeight: 'bold',
+  fontSize: '18px'
+};
+const buttonStyle = {
+  
+  padding: '10px 15px'
+};
 export default function ButtonContainer() {
   return (
-    <div className="d-flex justify-content-center">
-        <button className="btn btn-danger mx-5 px-4 py-4 border-3 border-white ">Book Room</button>
-        <button className="btn btn-danger mx-5 px-4 py-4 border-3 border-white  ">Update Booked Room</button>
-        <button className="btn btn-danger mx-5 px-4 py-4 border-3 border-white  ">Recommend Others</button>
+
+    <div className="container text-center">
+
+      <div className="row">
+        <div className="col-lg-4 col-12 mt-lg-5 mt-1 ">
+          <button style={buttonStyle} className="btn btn-md">
+            <img src={Update} alt='icon' className="img-fluid" style={{ maxWidth: '80px', marginRight: '5px' }} />
+            <div style={divStyle}>Update Room</div>
+          </button>
+        </div>
+        <div className="col-lg-4 col-12 mt-lg-5 mt-2">
+          <button style={buttonStyle} className="btn btn-md">
+            <img src={Rec} alt='icon' className="img-fluid" style={{ maxWidth: '80px', marginRight: '5px' }} />
+            <div style={divStyle}>Recommend Room</div>
+          </button>
+        </div>
+        <div className="col-lg-4 col-12 mt-lg-5 mt-2">
+          <button style={buttonStyle} className="btn btn-md">
+            <img src={Checked} alt='icon' className="img-fluid" style={{ maxWidth: '80px', marginRight: '5px' }} />
+            <div style={divStyle}>Available Rooms</div>
+          </button>
+        </div>
+      </div>
     </div>
+
   )
 }
