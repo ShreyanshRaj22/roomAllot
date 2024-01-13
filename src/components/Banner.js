@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="banner-container">
         <img className="banner-image" src={bannerImage} alt="" />
         <div className="centered-text">
-        <h1>Welcome to NIT Delhi </h1>
+        <h1>NITD Accomodations</h1>
       </div>
       </div>
     </div>
