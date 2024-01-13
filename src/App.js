@@ -1,14 +1,30 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
-import ButtonContainer from "./components/ButtonContainer";
+
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+
+import Home  from "./screens/Home";
+import Login from "./screens/Login";
+import SignUp from "./screens/SignUp";
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Banner />
-      <ButtonContainer />
+      <div>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/login" element={<Login/>}></Route>
+            <Route exact path="/signup" element={<SignUp/>}></Route>
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 }
