@@ -1,13 +1,38 @@
-import React from "react";
-import "./Update.css"
-
-
+import React, { useState } from "react";
+import "./Update.css";
+import { useNavigate } from "react-router-dom";
 
 const Update = () => {
-    const handleClick =(i) => {
-        
-    }
+  const navigate = useNavigate();
+  const floorArray = [
+    "Ground",
+    "First",
+    "Second",
+    "Third",
+    "Fourth",
+    "Fifth",
+    "Sixth",
+    "Seventh",
+  ];
+  const [floorValue, setfloorValue] = useState(0);
+  const [roomValue, setroomValue] = useState(1);
 
+  const handleClick = async () => {
+    if (localStorage.getItem("authToken") === null) {
+      alert("Please Login to continue.");
+      navigate("/login");
+    }
+    await fetch("http://localhost:5000/api/selectRoom", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        num: roomValue + floorValue,
+        email: localStorage.getItem("userEmail"),
+      }),
+    });
+  };
   return (
     <div style={{ marginTop: "2%" }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,15 +58,23 @@ const Update = () => {
                 >
                   Floor
                 </button>
-                <ul className="dropdown-menu dropdown-menu-dark">
-                  <li>Ground Floor</li>
-                  <li>1st Floor</li>
-                  <li>2nd Floor</li>
-                  <li>3rd Floor</li>
-                  <li>4th Floor</li>
-                  <li>5th Floor</li>
-                  <li>6th Floor</li>
-                  <li>7th Floor</li>
+                <ul
+                  className="dropdown-menu dropdown-menu-dark"
+                  style={{ cursor: "pointer" }}
+                >
+                  {floorArray.map((e, i) => {
+                    return (
+                      <li
+                        key={i}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          setfloorValue(i * 100);
+                        }}
+                      >
+                        {floorArray[i]} Floor
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
             </ul>
@@ -54,20 +87,24 @@ const Update = () => {
             {Array.from(Array(12), (e, i) => {
               return (
                 <div
-                  onClick={handleClick(i)}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setroomValue(i + 1);
+                  }}
                   className="col-lg-2 col-md-3 col-12 text-light"
                   key={i + 1}
                 >
-                  <h1 className="roomClass"
+                  <h1
+                    className="roomClass"
                     style={{
                       borderRadius: "5px",
                       borderWidth: "1px",
                       borderStyle: "solid",
                       borderColor: "white",
-                      height:"100px",
-                      alignItems:"center",
-                      justifyContent:"center",
-                      display:"flex"
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      display: "flex",
                     }}
                   >
                     R{i + 1}
@@ -76,6 +113,12 @@ const Update = () => {
               );
             })}
           </div>
+        </div>
+        <div className="text-white">
+          <h2>Room: {roomValue + floorValue} </h2>
+          <button className="btn btn-dark" onClick={handleClick}>
+            <h2>Update</h2>
+          </button>
         </div>
       </div>
     </div>
