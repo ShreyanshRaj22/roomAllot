@@ -4,6 +4,7 @@ import Banner from '../components/Banner'
 import ButtonContainer from '../components/ButtonContainer'
 import Update from '../components/Update'
 import Refer from '../components/Refer'
+import Avarooms from '../components/Avarooms'
 
 const Home = () => {
   return (
@@ -11,8 +12,10 @@ const Home = () => {
         <Navbar />
         <Banner />
         <ButtonContainer />
+        <Avarooms />
         <Update />
         <Refer />
+        
     </div>
   )
 }
