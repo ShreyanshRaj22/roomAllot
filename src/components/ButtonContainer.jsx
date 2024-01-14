@@ -19,7 +19,7 @@ export default function ButtonContainer() {
 
       <div className="row">
         <div className="col-lg-4 col-12 mt-lg-5 mt-1 ">
-          <button style={buttonStyle} className="btn btn-md">
+          <button style={buttonStyle} className="btn btn-md" >
             <img src={Update} alt='icon' className="img-fluid" style={{ maxWidth: '80px', marginRight: '5px' }} />
             <div style={divStyle}>Update Room</div>
           </button>

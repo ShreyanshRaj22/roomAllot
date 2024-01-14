@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
 import ButtonContainer from '../components/ButtonContainer'
 import Update from '../components/Update'
+import Refer from '../components/Refer'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         <Banner />
         <ButtonContainer />
         <Update />
+        <Refer />
     </div>
   )
 }
