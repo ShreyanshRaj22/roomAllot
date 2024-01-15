@@ -7,28 +7,33 @@ export default function Navbar() {
   const navigate = useNavigate();
   const home = "/";
   const sign = "/login"
-  const handleClick = () =>{
-    localStorage.setItem("authToken",null)
-    localStorage.setItem("userEmail",null)
-    navigate('/login')
-  }
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userEmail');
+    navigate('/login');
+  };
   return (
     <div>
       <nav className="freenav navbar navbar-expand-lg navbar-light bg-light bg-transparent">
         <div className="container-fluid mx-5">
           <Link className="navbar-brand fw-bold text-white" to={home}>NITD Allots</Link>
           <form className="d-flex">
-            {
-              localStorage.getItem("authToken") === null ? (
-                <Link className="btn fw-bold text-white" to={sign}>Sign In</Link>
-              ) : (
-                <div>
-                  <img src={accounts} style={{ maxWidth: '30px', marginRight: '5px' }} alt="accounts" />
-                  <button onClick={handleClick} className='btn fw-bold text-white'>Log Out</button>
-                  
-                </div>
-              )
-            }
+          {localStorage.getItem('authToken') === null ? (
+            <Link className="btn fw-bold text-white" to="/login">
+              Sign In
+            </Link>
+          ) : (
+            <div>
+              <img
+                src={accounts}
+                style={{ maxWidth: '30px', marginRight: '5px' }}
+                alt="accounts"
+              />
+              <button onClick={handleLogout} className="btn fw-bold text-white">
+                Log Out
+              </button>
+            </div>
+          )}
 
           </form>
         </div>
