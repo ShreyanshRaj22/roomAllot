@@ -6,7 +6,7 @@ const Avarooms = () => {
         // Fetch rooms data from the server
         const fetchRooms = async () => {
           try {
-            const response = await fetch('http://localhost:5000/api/countRooms');
+            const response = await fetch('https://room-allot-back.vercel.app/api/countRooms');
             
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);

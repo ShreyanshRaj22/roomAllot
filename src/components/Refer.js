@@ -13,7 +13,7 @@ const Refer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/referRoom",{
+    const response = await fetch("https://room-allot-back.vercel.app/api/referRoom",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Refer = () => {
       try {
         const userEmail = localStorage.getItem("userEmail");
         const response = await fetch(
-          `http://localhost:5000/api/refroom?email=${userEmail}`,
+          `https://room-allot-back.vercel.app/api/refroom?email=${userEmail}`,
           {
             method: "GET",
             headers: {

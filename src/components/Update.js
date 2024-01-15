@@ -22,7 +22,7 @@ const Update = () => {
       alert("Please Login to continue.");
       navigate("/login");
     }
-    await fetch("http://localhost:5000/api/selectRoom", {
+    await fetch("https://room-allot-back.vercel.app/api/selectRoom", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
