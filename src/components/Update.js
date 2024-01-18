@@ -34,7 +34,7 @@ const Update = () => {
     });
   };
   return (
-    <div style={{ marginTop: "2%" }}>
+    <div id="updateZone" style={{ marginTop: "2%" }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <button
@@ -65,6 +65,7 @@ const Update = () => {
                   {floorArray.map((e, i) => {
                     return (
                       <li
+                        className="mx-2"
                         key={i}
                         style={{ cursor: "pointer" }}
                         onClick={() => {
@@ -81,7 +82,12 @@ const Update = () => {
           </div>
         </div>
       </nav>
-      <div className="bg-dark">
+      <div className="bg-dark pb-5 ">
+        <div className="container text-center ">
+          <h1 className="display-4 fw-bold text-white mb-5">
+            Please Select Desired Room
+          </h1>
+        </div>
         <div className="container text-center">
           <div className="row">
             {Array.from(Array(12), (e, i) => {
@@ -116,7 +122,10 @@ const Update = () => {
         </div>
         <div className="text-white">
           <h2>Room: {roomValue + floorValue} </h2>
-          <button className="btn btn-dark" onClick={handleClick}>
+          <button
+            className="btn btn-dark border border-3 px-5 py-2 border-light mt-3 "
+            onClick={handleClick}
+          >
             <h2>Update</h2>
           </button>
         </div>
