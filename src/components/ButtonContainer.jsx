@@ -6,7 +6,7 @@ import Checked from '../images/checked.png'
 const divStyle = {
   marginTop: '5px',
   fontWeight: 'bold',
-  fontSize: '18px'
+  fontSize: '17px'
 };
 const buttonStyle = {
   

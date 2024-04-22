@@ -53,7 +53,7 @@ const Login = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="Enter Email"
           />
         </div>
         <div className="form-group my-2 ">
