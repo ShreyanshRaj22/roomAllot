@@ -13,16 +13,19 @@ const Refer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://room-allot-back.vercel.app/api/referRoom",{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        refroom: credentials.room,
-        email: credentials.email,
-      }),
-    })
+    const response = await fetch(
+      "https://room-allot-back.vercel.app/api/referRoom",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          refroom: credentials.room,
+          email: credentials.email,
+        }),
+      }
+    );
     const json = response.json();
     console.log(json);
   };
@@ -59,7 +62,7 @@ const Refer = () => {
   }, []);
 
   return (
-    <div>
+    <div id="referZone">
       <div
         className="alert alert-warning alert-dismissible fade show"
         role="alert"
@@ -85,6 +88,8 @@ const Refer = () => {
           justifyContent: "left",
           display: "flex",
           paddingLeft: "5%",
+          marginTop: "3rem",
+          marginBottom: "2rem",
         }}
       >
         <div className="container">
@@ -93,7 +98,7 @@ const Refer = () => {
               <img src={ImageIcon} alt="" className="mr-3" />
             </div>
             <div
-              className="col-lg-6 col-12"
+              className="col-lg-6 col-12 border border-3 border-danger rounded-3"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -102,7 +107,10 @@ const Refer = () => {
             >
               <form onSubmit={handleSubmit} style={{ width: "100%" }}>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
+                  <label
+                    htmlFor="exampleInputEmail1"
+                    className="form-label h4 "
+                  >
                     Email address
                   </label>
                   <input
@@ -110,18 +118,18 @@ const Refer = () => {
                     onChange={onChange}
                     value={credentials.email}
                     name="email"
-                    className="form-control"
+                    className="form-control border border-1 border-info "
                     id="exampleInputEmail1"
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Room Number</label>
+                  <label className="form-label h4">Room Number</label>
                   <input
                     type="text"
                     onChange={onChange}
                     value={credentials.room}
                     name="room"
-                    className="form-control"
+                    className="form-control border border-1 border-info"
                     id="exampleInputRoomNumber1"
                   />
                 </div>
